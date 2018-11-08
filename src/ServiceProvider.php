@@ -13,7 +13,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        require(app_path('Rules/rules.php'));
+        require(__DIR__.'/Rules/rules.php');
     }
 
     /**
