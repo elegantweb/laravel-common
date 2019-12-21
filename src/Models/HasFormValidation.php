@@ -21,11 +21,6 @@ trait HasFormValidation
         return [];
     }
 
-    public function filters()
-    {
-        return [];
-    }
-
     public function getRules($key = null)
     {
         if (is_null($key)) {
@@ -56,17 +51,6 @@ trait HasFormValidation
             return Arr::only($this->attributes(), $key);
         } else {
             return Arr::get($this->attributes(), $key, '');
-        }
-    }
-
-    public function getFilters($key = null)
-    {
-        if (is_null($key)) {
-            return $this->filters();
-        } elseif (is_array($key)) {
-            return Arr::only($this->filters(), $key);
-        } else {
-            return Arr::get($this->filters(), $key, []);
         }
     }
 }
