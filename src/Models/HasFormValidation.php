@@ -2,6 +2,8 @@
 
 namespace Elegant\Common\Models;
 
+use Illuminate\Support\Arr;
+
 trait HasFormValidation
 {
     public function rules()
@@ -29,9 +31,9 @@ trait HasFormValidation
         if (is_null($key)) {
             return $this->rules();
         } elseif (is_array($key)) {
-            return array_only($this->rules(), $key);
+            return Arr::only($this->rules(), $key);
         } else {
-            return array_get($this->rules(), $key, []);
+            return Arr::get($this->rules(), $key, []);
         }
     }
 
@@ -40,9 +42,9 @@ trait HasFormValidation
         if (is_null($key)) {
             return $this->messages();
         } elseif (is_array($key)) {
-            return array_only($this->messages(), $key);
+            return Arr::only($this->messages(), $key);
         } else {
-            return array_get($this->messages(), $key, '');
+            return Arr::get($this->messages(), $key, '');
         }
     }
 
@@ -51,9 +53,9 @@ trait HasFormValidation
         if (is_null($key)) {
             return $this->attributes();
         } elseif (is_array($key)) {
-            return array_only($this->attributes(), $key);
+            return Arr::only($this->attributes(), $key);
         } else {
-            return array_get($this->attributes(), $key, '');
+            return Arr::get($this->attributes(), $key, '');
         }
     }
 
@@ -62,9 +64,9 @@ trait HasFormValidation
         if (is_null($key)) {
             return $this->filters();
         } elseif (is_array($key)) {
-            return array_only($this->filters(), $key);
+            return Arr::only($this->filters(), $key);
         } else {
-            return array_get($this->filters(), $key, []);
+            return Arr::get($this->filters(), $key, []);
         }
     }
 }
