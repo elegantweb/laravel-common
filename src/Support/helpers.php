@@ -39,3 +39,17 @@ if (!function_exists('trans_currency')) {
         return trans_number($number, NumberFormatter::CURRENCY);
     }
 }
+
+if (!function_exists('o')) {
+    function o($value = null, callable $callback = null)
+    {
+        return optional($value, $callback);
+    }
+}
+
+if (!function_exists('other')) {
+    function other($to = null, $headers = [], $secure = null)
+    {
+        return redirect($to, 303, $headers, $secure);
+    }
+}
