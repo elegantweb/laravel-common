@@ -16,7 +16,7 @@ trait HasFormValidation
         return [];
     }
 
-    public function attributes()
+    public function attrs()
     {
         return [];
     }
@@ -43,14 +43,14 @@ trait HasFormValidation
         }
     }
 
-    public function getAttributes($key = null)
+    public function getAttrs($key = null)
     {
         if (is_null($key)) {
-            return $this->attributes();
+            return $this->attrs();
         } elseif (is_array($key)) {
-            return Arr::only($this->attributes(), $key);
+            return Arr::only($this->attrs(), $key);
         } else {
-            return Arr::get($this->attributes(), $key, '');
+            return Arr::get($this->attrs(), $key, '');
         }
     }
 }
