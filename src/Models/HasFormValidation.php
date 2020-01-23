@@ -11,7 +11,7 @@ trait HasFormValidation
         return [];
     }
 
-    public function messages()
+    public function msgs()
     {
         return [];
     }
@@ -32,14 +32,14 @@ trait HasFormValidation
         }
     }
 
-    public function getMessages($key = null)
+    public function getMsgs($key = null)
     {
         if (is_null($key)) {
-            return $this->messages();
+            return $this->msgs();
         } elseif (is_array($key)) {
-            return Arr::only($this->messages(), $key);
+            return Arr::only($this->msgs(), $key);
         } else {
-            return Arr::get($this->messages(), $key, '');
+            return Arr::get($this->msgs(), $key, '');
         }
     }
 
