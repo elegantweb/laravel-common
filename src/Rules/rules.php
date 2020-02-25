@@ -7,7 +7,7 @@ use Illuminate\Database\Schema\Builder as Schema;
 Validator::extend('decimal', function ($attribute, $value, $parameters, $validator) {
     $integer = $parameters[0] - $parameters[1];
     $scale = $parameters[1];
-    return (bool) preg_match("/^\d{1,{$integer}}(\.\d{1,{$scale}})?$/", $value);
+    return (bool) preg_match("/^(\+|-)?\d{1,{$integer}}(\.\d{1,{$scale}})?$/", $value);
 });
 
 Validator::replacer('decimal', function ($message, $attribute, $rule, $parameters) {
