@@ -14,6 +14,7 @@ class ServiceProvider extends BaseServiceProvider
     public function boot()
     {
         require(__DIR__.'/Rules/rules.php');
+        require(__DIR__.'/directives.php');
     }
 
     /**

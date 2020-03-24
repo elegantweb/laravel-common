@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Schema\Builder as Schema;
 
 // Decimal rule
