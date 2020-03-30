@@ -6,7 +6,7 @@ Blade::directive('mixin', function ($exp) {
     return <<<CODE
 <?php
 list(\$_mixName) = (fn(\$name) => [\$name])({$exp});
-\$_mixins[\$_mixName.'-'.md5(__FILE__)] = function (\$_mix_data) use (&\$_mixins) { extract(\$_mix_data);
+\$_mixins[\$_mixName.'-'.md5(__FILE__)] = function (\$_mixData) use (&\$_mixins) { extract(\$_mixData, EXTR_SKIP);
 ?>
 CODE;
 });
