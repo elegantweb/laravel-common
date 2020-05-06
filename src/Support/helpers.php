@@ -19,7 +19,7 @@ if (!function_exists('trans_date')) {
 }
 
 if (!function_exists('trans_number')) {
-    function trans_number($number, $style = NumberFormatter::PATTERN_DECIMAL, $pattern = null)
+    function trans_number($number, $style = NumberFormatter::DECIMAL, $pattern = null)
     {
         $fmt = numfmt_create(
             app()->getLocale(),
