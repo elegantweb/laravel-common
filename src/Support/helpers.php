@@ -34,9 +34,18 @@ if (!function_exists('trans_number')) {
 }
 
 if (!function_exists('trans_currency')) {
-    function trans_currency($number)
+    function trans_currency($number, $currency = null)
     {
-        return trans_number($number, NumberFormatter::CURRENCY);
+        $fmt = numfmt_create(
+            app()->getLocale(),
+            NumberFormatter::CURRENCY
+        );
+
+        if ($currency) {
+            return numfmt_format_currency($fmt, $number, $currency);
+        } else {
+            return numfmt_format($fmt, $number);
+        }
     }
 }
 
