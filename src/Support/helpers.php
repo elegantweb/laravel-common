@@ -3,13 +3,27 @@
 if (!function_exists('trans_date')) {
     function trans_date($format, $timestamp = null)
     {
+        if (is_array($format)) {
+            [$dateType, $timeType] = $format;
+        } elseif (is_int($format)) {
+            $dateType = $timeType = $format;
+        } else {
+            $dateType = $timeType = IntlDateFormatter::FULL;
+        }
+
+        if (is_string($format)) {
+            $pattern = $format;
+        } else {
+            $pattern = null;
+        }
+
         $fmt = datefmt_create(
             app()->getLocale(),
-            IntlDateFormatter::FULL,
-            IntlDateFormatter::FULL,
+            $dateType,
+            $timeType,
             NULL,
             IntlDateFormatter::TRADITIONAL,
-            $format
+            $pattern
         );
 
         return datefmt_format(
