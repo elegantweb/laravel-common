@@ -3,18 +3,6 @@
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Schema\Builder as Schema;
 
-// Decimal rule
-
-Validator::extend('decimal', function ($attribute, $value, $parameters, $validator) {
-    $integer = $parameters[0] - $parameters[1];
-    $scale = $parameters[1];
-    return (bool) preg_match("/^(\+|-)?\d{1,{$integer}}(\.\d{1,{$scale}})?$/", $value);
-});
-
-Validator::replacer('decimal', function ($message, $attribute, $rule, $parameters) {
-    return str_replace([':m', ':d'], [$parameters[0], $parameters[1]], $message);
-});
-
 // Max database string rule
 
 Validator::extend('max_db_string', function ($attribute, $value, $parameters, $validator) {
