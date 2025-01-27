@@ -63,13 +63,6 @@ if (!function_exists('trans_currency')) {
     }
 }
 
-if (!function_exists('o')) {
-    function o($value = null, callable $callback = null)
-    {
-        return optional($value, $callback);
-    }
-}
-
 if (!function_exists('other')) {
     function other($to = null, $headers = [], $secure = null)
     {
